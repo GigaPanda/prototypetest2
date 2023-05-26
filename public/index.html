@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+  <style>
+
+    body{
+       background-color: #141414;
+    }
+    /* Container for the buttons */
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Individual button */
+    .button {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 250px;
+      height: 250px;
+      margin: 20px;
+      margin-top: 2%;
+      background-color: #6363637e;
+      cursor: pointer;
+      border-radius: 40px;
+      transition: ease 0.3s;
+    }
+
+
+    .button:hover{
+        scale:1.1;
+        box-shadow: 20px 20px 10px #00000081;
+        background-color: #ffffffa1;
+    }
+    /* Text popup style */
+    .button:hover::before {
+      content: attr(data-text);
+      position: absolute;
+      top: 80%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #cfcfcf;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    img {
+        border-radius: 30px;
+        height: 90%;
+        width: 90%;
+    }
+
+
+    .box {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.11);
+    border-radius: 65px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 20px 20px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.3s ease;
+    width: 1500px;
+    height: 310px;
+    overflow: hidden;
+  }
+
+  .box:hover {
+    width: 1900px;
+    height: 1210px;
+    top: 50%;
+  }
+
+  canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    #logo {
+      font-size: 200px;
+      font-family: 'Montserrat', sans-serif;
+      margin-left: 23%;
+      margin-top: 15%;
+      text-shadow: 20px 20px 10px #00000077;
+      color: rgba(218, 218, 218, 0.651);
+      transition: opacity 0.3s;
+      opacity: 1;
+    }
+
+    #logo.hidden {
+      opacity: 0;
+    }
+  </style>
+</head>
+<script src="/js/go.js"></script>
+<script src="/js/index.js"></script>
+<body>
+  <canvas id="particle-canvas"></canvas>
+  <div id="logo">Alkaline Apps</div>
+  <div class="box">
+  <div class="button-container">
+    <div class="button" data-text="Youtube" onclick="redirectToURL('/service/gateway?url=youtube.com')">
+        <img src="assets/youtube.svg" alt="Button 1 Image">
+      </div>
+      <div class="button" data-text="Geforce NOW" onclick="redirectToURL('/service/gateway?url=play.geforcenow.com')">
+        <img src="assets/geforcenow.png" alt="Button 2 Image">
+      </div>
+      <div class="button" data-text="Google" onclick="redirectToURL('/service/gateway?url=google.com')">
+        <img src="assets/google.png" alt="Button 3 Image">
+      </div>
+      <div class="button" data-text="Poki" onclick="redirectToURL('/service/gateway?url=poki.com')">
+        <img src="assets/poki.png" alt="Button 3 Image">
+      </div>
+      <div class="button" data-text="Reddit" onclick="redirectToURL('/service/gateway?url=reddit.com')">
+        <img src="assets/reddit.jpg" alt="Button 3 Image">
+      </div>
+      <div class="button" data-text="Twitter" onclick="redirectToURL('/service/gateway?url=twitter.com')">
+        <img src="assets/twitter.png" alt="Button 3 Image">
+      </div>
+      <div class="button" data-text="Netflix" onclick="redirectToURL('/service/gateway?url=netflix.com')">
+        <img src="assets/netflix.webp" alt="Button 3 Image">
+      </div>
+      <div class="button" data-text="Twitch" onclick="redirectToURL('/service/gateway?url=twitch.com')">
+        <img src="assets/twitch.webp" alt="Button 3 Image">
+      </div>
+      <div class="button" data-text="Instagram" onclick="redirectToURL('/service/gateway?url=instagram.com')">
+        <img src="assets/instagram.jpg" alt="Button 3 Image">
+      </div>
+      <div class="button" data-text="TikTok" onclick="redirectToURL('/service/gateway?url=tiktok.com')">
+        <img src="assets/tiktok.png" alt="Button 3 Image">
+      </div>
+      <div class="button" data-text="Discord" onclick="redirectToURL('/service/gateway?url=discord.com')">
+        <img src="assets/discord.png" alt="Button 3 Image">
+      </div>
+      <div class="button" data-text="Amino" onclick="redirectToURL('/service/gateway?url=aminoapps.com')">
+        <img src="assets/amino.png" alt="Button 3 Image">
+      </div>
+      <div class="button" data-text="Cool Math Games" onclick="redirectToURL('/service/gateway?url=coolmathgames.com')">
+        <img src="assets/coolmathgames.png" alt="Button 3 Image">
+      </div>
+      <div class="button" data-text="Pinterest" onclick="redirectToURL('/service/gateway?url=pinterest.com')">
+        <img src="assets/pinterest.png" alt="Button 3 Image">
+      </div>
+      <div class="button" data-text="ChatGPT" onclick="redirectToURL('/service/gateway?url=poe.com/universal_link_page?displayName=chatgpt')">
+        <img src="assets/chatgpt.png" alt="Button 3 Image">
+      </div>
+      <div class="button" data-text="Mathway" onclick="redirectToURL('/service/gateway?url=mathway.com')">
+        <img src="assets/mathway.jpg" alt="Button 3 Image">
+      </div>
+      <div class="button" data-text="Github" onclick="redirectToURL('/service/gateway?url=github.com')">
+        <img src="assets/github.jpg" alt="Button 3 Image">
+      </div>
+      <div class="button" data-text="Soundcloud" onclick="redirectToURL('/service/gateway?url=soundcloud.com')">
+        <img src="assets/soundcloud.png" alt="Button 3 Image">
+      </div>
+      <div class="button" data-text="Visual Studio Code" onclick="redirectToURL('/service/gateway?url=vscode.dev')">
+        <img src="assets/vscode.png" alt="Button 3 Image">
+      </div>
+      <div class="button" data-text="Spotify" onclick="redirectToURL('/service/gateway?url=spotify.com')">
+        <img src="assets/spotify.png" alt="Button 3 Image">
+      </div>
+      <div class="button" data-text="X Cloud Gaming" onclick="redirectToURL('/service/gateway?url=www.xbox.com/en-us/play')">
+        <img src="assets/xcloudgaming.png" alt="Button 3 Image">
+      </div>
+      <div class="button" data-text="Lichess" onclick="redirectToURL('/service/gateway?url=lichess.org')">
+        <img src="assets/chess.png" alt="Button 3 Image">
+      </div>
+      <div class="button" data-text="SFlix" onclick="redirectToURL('/service/gateway?url=sflix.to')">
+        <img src="assets/sflix.jpg" alt="Button 3 Image">
+      </div>
+      <div class="button" data-text="WebLFG (Games)" onclick="redirectToURL('/service/gateway?url=weblfg.com')">
+        <img src="assets/weblfg.png" alt="Button 3 Image">
+      </div>
+    <!-- Add more buttons as needed -->
+  </div>
+  <div>
+</body>
+<script>
+    function redirectToURL(url) {
+      window.location.href = url;
+    }
+  </script>
+  <script>
+  var proxy=localStorage.getItem("proxy");
+  if (proxy==undefined){
+   proxy="Corrosion";
+  }
+  </script>
+    <script>
+      // Get screen dimensions
+      var screenWidth = window.innerWidth;
+      var screenHeight = window.innerHeight;
+  
+      // Create canvas with screen dimensions
+      var canvas = document.getElementById('particle-canvas');
+      canvas.width = screenWidth;
+      canvas.height = screenHeight;
+  
+      var ctx = canvas.getContext('2d');
+  
+      // Particle configuration
+      var numParticles = 200;
+      var particles = [];
+  
+      function Particle(x, y, radius, speed) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+        this.speed = speed;
+      }
+  
+      Particle.prototype.update = function() {
+        this.y -= this.speed;
+  
+        if (this.y + this.radius < 0) {
+          this.y = screenHeight + this.radius;
+        }
+  
+        this.draw();
+      };
+  
+      Particle.prototype.draw = function() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+        ctx.fill();
+        ctx.closePath();
+      };
+  
+      function createParticles() {
+        for (var i = 0; i < numParticles; i++) {
+          var x = Math.random() * screenWidth;
+          var y = Math.random() * screenHeight;
+          var radius = Math.random() * 3;
+          var speed = Math.random() * 4.5;
+          particles.push(new Particle(x, y, radius, speed));
+        }
+      }
+  
+      function animateParticles() {
+        ctx.clearRect(0, 0, screenWidth, screenHeight);
+  
+        for (var i = 0; i < particles.length; i++) {
+          particles[i].update();
+        }
+  
+        requestAnimationFrame(animateParticles);
+      }
+  
+      createParticles();
+      animateParticles();
+    </script>
+        <script>
+          // Get the elements
+          const box = document.querySelector('.box');
+          const militaryTime = document.querySelector('#military-time');
+      
+          // Add event listener for hover
+          box.addEventListener('mouseenter', () => {
+            logo.classList.add('hidden');
+          });
+      
+          box.addEventListener('mouseleave', () => {
+            logo.classList.remove('hidden');
+          });
+        </script>
+</html>
